@@ -24,7 +24,19 @@ if os.path.exists(file_path):
     df['Date'] = pd.to_datetime(df['Date'], format='%d-%b-%y', errors='coerce')
 
     # Filter the row for the selected date
-    row = df[df['Date'].dt.date == selected_date]
+from datetime import timedelta
+
+# Get today's date
+now = datetime.now()
+today = now.date()
+
+# Adjust date if it's before 8 AM (then use yesterday)
+effective_date = today
+if now.hour < 8:
+    effective_date = today - timedelta(days=1)
+
+# Let user pick a date (default is the effective date)
+selected_date = st.date_input("Pick a date", effective_date)
 
     # Define relevant columns to search for names
     name_columns = df.columns[2:]
