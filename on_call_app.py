@@ -5,7 +5,7 @@ import os
 
 st.title("📅 Who's On Call")
 
-SCHEDULE_FOLDER = "schedules"
+SCHEDULE_FOLDER = "Schedules"
 
 # Get today's date
 today = datetime.today().date()
