@@ -7,7 +7,7 @@ import os
 st.title("📅 Who's On Call")
 
 # Folder with schedule files
-SCHEDULE_FOLDER = "schedules"
+SCHEDULE_FOLDER = "Schedules"
 
 # Get list of books (months)
 books = [f for f in os.listdir(SCHEDULE_FOLDER) if f.endswith(".csv")]
